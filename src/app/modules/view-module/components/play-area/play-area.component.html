@@ -1,16 +1,29 @@
 <div class="container">
   <mat-toolbar>
     <h2>WORDLE</h2>
-  </mat-toolbar> 
+  </mat-toolbar>
+  <h1 *ngIf="fullMatch" style="text-align:center;color:green">YOU WON!!</h1>
   <div *ngFor="let i of rowCount">
     <mat-grid-list cols="5" rowHeight="1:1" [gutterSize]="'10px'">
-      <form [id]="'form'+i" class="wordle-form">
+      <form [id]="'form' + i" class="wordle-form">
         <mat-grid-tile *ngFor="let j of colCount">
           <mat-form-field class="wordle-field" appearance="fill">
-            <input matInput [id]="'form'+i+'input'+j" disabled="true"/> </mat-form-field
+            <input
+              matInput
+              [id]="'form' + i + 'input' + j"
+              disabled="true"
+            /> </mat-form-field
         ></mat-grid-tile>
       </form>
     </mat-grid-list>
   </div>
-  <button #submit mat-stroked-button color="primary" [disabled]="isDisabled" (click)="moveToNextForm()">Check Word</button>
+  <button
+    #submit
+    mat-stroked-button
+    color="primary"
+    [disabled]="isDisabled"
+    (click)="moveToNextForm()"
+  >
+    Check Word
+  </button>
 </div>
