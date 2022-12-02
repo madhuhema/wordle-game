@@ -70,6 +70,7 @@ export class PlayAreaComponent implements OnInit {
         target.classList.add("green-bg");
       }
       console.log("Win");
+      window.alert('congrats!!!');
       this.enableOrDisableSubmitButton();
     } else if (this.invalidWord) {
       console.log("Word not valid");
@@ -86,7 +87,8 @@ export class PlayAreaComponent implements OnInit {
       const res = await firstValueFrom(this.checkWord.isValidWord(word))
       this.checkWordIfRightWord(word)
     } catch (error) {
-      this.notAValidWord()
+      this.notAValidWord();
+      window.alert('not a valid word');
     }
   }
   notAValidWord() {
